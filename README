@@ -1,0 +1,25 @@
+Salut! Pentru aceasta tema am ales sa folosesc liste generice si o sa explic codul implementat pentru fiecare cerinta.
+Pentru create fs: Folosesc ca parametru un director. Aloc memorie pentru director si pentru numele sau si dupa ii pun numele "/", campurile pentru lista de noduri/fisiere si parentDir devin NULL.
+
+Pentru delete fs: Ca sa pot apela functie din orice director, am facut astfel incat directorul curent sa devina radacina si dupa am eliberat memoria pentru nume si pentru el.
+
+Pentru touch: Mai intai aloc memorie pentru toate campurile din structura File si atribui valori campurilor sizes,data si name. Dupa adaug nodul meu in lista de fisiera a directorului in care ma aflu. Pentru a fi o lista ordonata lexicografic, parcurg lista pana cand gasesc un fisier cu un nume "mai mare" din punct de vedere lexicografic si adaug nodul inaintea lui.
+
+Pentru mkdir: Folosesc acelasi principiu ca la touch. Directorul parinte va fi directorul curent si adaug nodul in lista de directoare a directorului curent la fel ca la touch.
+
+Pentru ls: Parcurgem lista de fisiere si afisam numele. Dupa parcurgem lista de directoare si afisam numele.
+
+Pentru pwd: Am rezolvat in mod recursiv. Cat timp parintele director este diferit de NULL apelam pwd(parinte director). Cand ajungem in radacina afisam numele adica "/"si in rest, afisam "/nume".
+
+Pentru cd: Unul dintre parimentrii este numele directorului in care vrem sa mergem. Mai intai, cautam in lista de directoare un director cu numele respectiv. Daca il gasim il returnam. Daca folosim "cd .." returnam directorul parinte. In main avem un director curent care ia valoarea returnata de functia cd(), daca nu returneaza NULL. Daca returneaza NULL, afiseaza mesajul corespunzator.
+
+Pentru tree: Afisam  toate fisierele dintr-un  director precedate de numarul de spatii corespunzatoare. Dupa afisam numele unui director si apelam functia pentru directorul respectiv, crescand contorul pentru spatii. In main dupa ce citim comanda afisam numele directorului curent si apelam functia tree().
+
+Pentru rm: Cautam numele fisierului pe care vrem sa-l stergem. Daca il gasim eliberam memoria pentru fiecare camp al fisierului si pentru fisierul in sine.Daca nu il gasim afisam mesajul.
+
+Pentru rmdir: La fel ca la rm cautam mai intai directorul pe care vrem sa-l stergem. Daca il gasim stergem toate fisierele mai intai, dupa care intram in fiecare director, in mod recursiv si stergem totul. Daca nu il gasim  afisam mesajul.
+
+Pentru testul de valgrind pe checkerul local da totul perfect. Am parcurs testValgrind.in si la final totul a mers bine. Am folosit valgrind si pentru TestValgrind.in si cu un test facut de mine in care aveam rm si rmdir si la niciunul nu apareau leakuri de memorie.
+
+La fel, pe local nu mi se scad puncte pentru style dar pe vmchecker da, iar in fisierul cu erori de style nu mai am nimic. Deci daca se poate sa mi se ruleze local ar fi perfect!
+ Multumesc! O zi buna!
